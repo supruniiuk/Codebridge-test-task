@@ -6,6 +6,10 @@ import { ArticlesListComponent } from './components/articles-list/articles-list.
 import { ArticlesRoutingModule } from './articles-routing.module';
 import { ArticleInfoComponent } from './components/article-info/article-info.component';
 import { ArticlesComponent } from './articles.component';
+import { FilterSearchComponent } from 'src/app/shared/components/filter-search/filter-search.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormField, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon'; 
 
 @NgModule({
   declarations: [
@@ -14,7 +18,11 @@ import { ArticlesComponent } from './articles.component';
     ArticlesListComponent,
     ArticleInfoComponent,
     ArticlesComponent,
+    FilterSearchComponent
   ],
-  imports: [ArticlesRoutingModule, CommonModule],
+  imports: [ArticlesRoutingModule, CommonModule, 
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule],
 })
 export class ArticlesModule {}
