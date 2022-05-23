@@ -1,0 +1,40 @@
+.mat-card {
+padding: 0;
+  img {
+    margin-top:0;
+    height: 217px;
+  }
+
+  .mat-card-title {
+    line-height: 29px;
+    margin-bottom: 20px;
+  }
+
+  .mat-icon {
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+  }
+
+  .mat-card-content {
+    padding: 0 25px 25px;
+    p{
+        font-size: 16px;
+        line-height: 150%;
+      }
+  }
+}
+
+.link {
+  display: flex;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.align-with-icon {
+  display: flex;
+  align-items: center;
+}

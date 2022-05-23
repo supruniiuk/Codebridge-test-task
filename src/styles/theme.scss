@@ -34,3 +34,19 @@ $custom-typography: mat.define-typography-config(
 .mat-form-field-appearance-outline.mat-focused .mat-form-field-label {
   color: variables.$dark;
 }
+
+
+@mixin outline() {
+  box-shadow: variables.$input-shadow;
+  border: variables.$border-outline;
+
+}
+
+::ng-deep .mat-form-field-flex {
+  box-shadow: variables.$input-shadow;
+}
+
+
+.mat-grid-tile{
+  @include outline;
+}

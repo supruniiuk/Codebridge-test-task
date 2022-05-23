@@ -1,8 +1,10 @@
 @use "../../../../styles/variables.scss" as variables;
 .mat-form-field {
-  width: 600px;
+  width: 40%;
 }
 
-::ng-deep .mat-form-field-flex {
-    box-shadow: variables.$input-shadow;
+@media screen and (max-width: 768px) {
+  .mat-form-field {
+    width: 100%;
+  }
 }

@@ -1,0 +1,10 @@
+.card-list {
+  margin: 45px 0;
+}
+
+::ng-deep .mat-grid-tile {
+  padding-top: 0 !important;
+  .mat-grid-tile-content {
+    align-items: flex-start !important;
+  }
+}

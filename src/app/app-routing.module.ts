@@ -7,10 +7,9 @@ const routes: Routes = [
   {
     path: 'articles',
     component: ArticlesComponent,
-    loadChildren: () =>
-      import('./modules/articles/articles.module').then(
-        (m) => m.ArticlesModule
-      ),
+    loadChildren: () => import('./modules/articles/articles.module').then(
+      (m) => m.ArticlesModule,
+    ),
   },
 ];
 

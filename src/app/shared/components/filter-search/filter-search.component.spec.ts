@@ -8,9 +8,9 @@ describe('FilterSearchComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FilterSearchComponent ]
+      declarations: [FilterSearchComponent],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
