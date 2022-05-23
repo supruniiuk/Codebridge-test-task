@@ -46,7 +46,7 @@ $custom-typography: mat.define-typography-config(
   box-shadow: variables.$input-shadow;
 }
 
-
-.mat-grid-tile{
+.mat-card {
   @include outline;
 }
+

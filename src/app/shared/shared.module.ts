@@ -7,6 +7,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { FilterSearchComponent } from './components/filter-search/filter-search.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [FilterSearchComponent],
@@ -18,6 +19,7 @@ import { FilterSearchComponent } from './components/filter-search/filter-search.
     MatDividerModule,
     MatCardModule,
     MatGridListModule,
+    MatToolbarModule,
   ],
   exports: [
     FilterSearchComponent,
@@ -27,6 +29,7 @@ import { FilterSearchComponent } from './components/filter-search/filter-search.
     MatDividerModule,
     MatCardModule,
     MatGridListModule,
+    MatToolbarModule,
   ],
 })
 export class SharedModule {}
