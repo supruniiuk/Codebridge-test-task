@@ -32,7 +32,7 @@ const mockedArticles: Article[] = [
 
 describe('ArticlesPageComponent', () => {
   let component: ArticlesPageComponent;
-  let aricleService: ArticleService;
+  let articleService: ArticleService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -40,8 +40,8 @@ describe('ArticlesPageComponent', () => {
       imports: [HttpClientTestingModule],
     }).compileComponents();
 
-    aricleService = TestBed.inject(ArticleService);
-    component = new ArticlesPageComponent(aricleService);
+    articleService = TestBed.inject(ArticleService);
+    component = new ArticlesPageComponent(articleService);
   });
 
   it('should create', () => {
@@ -49,7 +49,7 @@ describe('ArticlesPageComponent', () => {
   });
 
   it('calls getArticles when ngOnInit', () => {
-    const spy = spyOn(aricleService, 'getArticles').and.callFake(() => {
+    const spy = spyOn(articleService, 'getArticles').and.callFake(() => {
       return EMPTY;
     });
 
@@ -58,7 +58,7 @@ describe('ArticlesPageComponent', () => {
   });
 
   it('calls getArticleCounter when ngOnInit', () => {
-    const spy = spyOn(aricleService, 'getArticlesCount').and.callFake(() => {
+    const spy = spyOn(articleService, 'getArticlesCount').and.callFake(() => {
       return EMPTY;
     });
 
@@ -73,7 +73,7 @@ describe('ArticlesPageComponent', () => {
   });
 
   it('gets total number of articles from getArticleCounter', () => {
-    spyOn(aricleService, 'getArticlesCount').and.callFake(
+    spyOn(articleService, 'getArticlesCount').and.callFake(
       (): Observable<number> => {
         return of(100);
       }
@@ -85,7 +85,7 @@ describe('ArticlesPageComponent', () => {
   });
 
   it('gets number of articles from getArticles', () => {
-    spyOn(aricleService, 'getArticles').and.callFake(
+    spyOn(articleService, 'getArticles').and.callFake(
       (): Observable<Article[]> => {
         return of(mockedArticles);
       }
