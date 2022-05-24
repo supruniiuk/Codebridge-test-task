@@ -31,23 +31,25 @@ export class ArticlesPageComponent implements OnInit {
         this.articles = res;
       });
 
-    this.subs.push(articleSubscription)
+    this.subs.push(articleSubscription);
   }
 
   getArticleCounter() {
-    const countSubscription = this.aricleService.getArticlesCount().subscribe((res) => {
-      this.totalArticles = +res;
-    })
+    const countSubscription = this.aricleService
+      .getArticlesCount()
+      .subscribe((res) => {
+        this.totalArticles = +res;
+      });
 
-    this.subs.push(countSubscription)
+    this.subs.push(countSubscription);
   }
 
   handlePage(e: PageEvent) {
     this.currentPage = e.pageIndex;
     this.limit = e.pageSize;
-    this.getAllArticles()
+    this.getAllArticles();
   }
-  
+
   ngOnDestroy() {
     this.subs.forEach((sub) => sub.unsubscribe());
   }
