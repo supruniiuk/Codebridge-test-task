@@ -21,25 +21,31 @@ export class ArticleInfoComponent implements OnInit {
   article: Article;
 
   @ViewChild('articleImg') articleImg;
-  
-  constructor(public route: ActivatedRoute, private articleService: ArticleService, private renderer: Renderer2) {}
+
+  constructor(
+    public route: ActivatedRoute,
+    private articleService: ArticleService,
+    private renderer: Renderer2
+  ) {}
 
   ngOnInit(): void {
-    const routeSubscription = this.route.params.subscribe(params => {
+    const routeSubscription = this.route.params.subscribe((params) => {
       this.articleId = +params.id;
-      this.getArticleById(this.articleId)
-    })
+      this.getArticleById(this.articleId);
+    });
 
     this.subs.push(routeSubscription);
   }
 
   getArticleById(id: number) {
-    const getArticleSubscription = this.articleService.getArticleById(id).subscribe((res) => {
-      this.article = res;
-      this.setBackground()
-    })
+    const getArticleSubscription = this.articleService
+      .getArticleById(id)
+      .subscribe((res) => {
+        this.article = res;
+        this.setBackground();
+      });
 
-    this.subs.push(getArticleSubscription)
+    this.subs.push(getArticleSubscription);
   }
 
   setBackground() {
@@ -49,7 +55,6 @@ export class ArticleInfoComponent implements OnInit {
       `center / cover no-repeat url(${this.article.imageUrl})`
     );
   }
-
 
   ngOnDestroy() {
     this.subs.forEach((sub) => sub.unsubscribe());
