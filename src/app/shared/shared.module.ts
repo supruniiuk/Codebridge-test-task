@@ -8,9 +8,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { FilterSearchComponent } from './components/filter-search/filter-search.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { LimitSymbolsPipe } from './pipes/limit-symbols.pipe';
+import {MatPaginatorModule} from '@angular/material/paginator'; 
 
 @NgModule({
-  declarations: [FilterSearchComponent],
+  declarations: [FilterSearchComponent, LimitSymbolsPipe],
   imports: [
     CommonModule,
     MatFormFieldModule,
@@ -20,6 +22,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatCardModule,
     MatGridListModule,
     MatToolbarModule,
+    MatPaginatorModule
   ],
   exports: [
     FilterSearchComponent,
@@ -30,6 +33,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatCardModule,
     MatGridListModule,
     MatToolbarModule,
+    LimitSymbolsPipe,
+    MatPaginatorModule
   ],
 })
 export class SharedModule {}
