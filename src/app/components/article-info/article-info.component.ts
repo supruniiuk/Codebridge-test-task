@@ -1,6 +1,5 @@
 import {
   Component,
-  ElementRef,
   OnInit,
   Renderer2,
   ViewChild,
