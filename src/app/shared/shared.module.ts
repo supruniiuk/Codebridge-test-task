@@ -9,10 +9,11 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { FilterSearchComponent } from './components/filter-search/filter-search.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { LimitSymbolsPipe } from './pipes/limit-symbols.pipe';
-import {MatPaginatorModule} from '@angular/material/paginator'; 
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { DateSuffixPipe } from './pipes/date-suffix.pipe'; 
 
 @NgModule({
-  declarations: [FilterSearchComponent, LimitSymbolsPipe],
+  declarations: [FilterSearchComponent, LimitSymbolsPipe, DateSuffixPipe, DateSuffixPipe],
   imports: [
     CommonModule,
     MatFormFieldModule,
@@ -34,6 +35,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatGridListModule,
     MatToolbarModule,
     LimitSymbolsPipe,
+    DateSuffixPipe,
     MatPaginatorModule
   ],
 })
