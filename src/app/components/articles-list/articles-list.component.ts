@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Article } from 'src/app/shared/interfaces/article.interface';
 
 @Component({
   selector: 'app-articles-list',
@@ -12,6 +13,8 @@ export class ArticlesListComponent implements OnInit {
     '1200': 2,
     '1550': 3,
   };
+
+  @Input() articles: Article[] = [];
 
   ngOnInit() {
     this.breakpoint = this.setGrid();
