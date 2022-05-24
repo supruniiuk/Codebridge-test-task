@@ -9,6 +9,7 @@ import { ArticleInfoComponent } from './components/article-info/article-info.com
 import { ArticleItemComponent } from './components/article-item/article-item.component';
 import { ArticlesListComponent } from './components/articles-list/articles-list.component';
 import { ArticlesPageComponent } from './components/articles-page/articles-page.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ArticlesPageComponent } from './components/articles-page/articles-page.
     SharedModule,
     AppRoutingModule,
     NoopAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
