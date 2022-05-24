@@ -9,7 +9,13 @@ import { ArticleInfoComponent } from './components/article-info/article-info.com
 import { ArticleItemComponent } from './components/article-item/article-item.component';
 import { ArticlesListComponent } from './components/articles-list/articles-list.component';
 import { ArticlesPageComponent } from './components/articles-page/articles-page.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ErrorInterceptor } from './shared/error.interceptor';
+
+export const interceptorProviders = [
+  { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+];
 
 @NgModule({
   declarations: [
@@ -17,16 +23,16 @@ import { HttpClientModule } from '@angular/common/http';
     ArticleInfoComponent,
     ArticleItemComponent,
     ArticlesListComponent,
-    ArticlesPageComponent
+    ArticlesPageComponent,
   ],
   imports: [
     BrowserModule,
     SharedModule,
     AppRoutingModule,
     NoopAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [MatSnackBar, interceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
