@@ -7,5 +7,5 @@ import { Article } from 'src/app/shared/interfaces/article.interface';
   styleUrls: ['./article-item.component.scss'],
 })
 export class ArticleItemComponent {
-  @Input() article: Article
+  @Input() article: Article = null
 }
