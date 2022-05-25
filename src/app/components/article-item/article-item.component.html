@@ -1,5 +1,5 @@
 <mat-card class="mat-elevation-z0" *ngIf="article">
-  <img mat-card-image src="{{ article.imageUrl }}" alt="Photo of a Shiba Inu" />
+  <img mat-card-image src="{{ article.imageUrl }}" alt="{{article.title}}" />
   <mat-card-content>
     <mat-card-subtitle>
       <mat-icon>calendar_today</mat-icon>{{ article.publishedAt | dateSuffix }}
