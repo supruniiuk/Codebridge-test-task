@@ -5,7 +5,11 @@ import { Article } from '../interfaces/article.interface';
   name: 'filter',
 })
 export class FilterPipe implements PipeTransform {
-  filterByField(array: Readonly<Article[]>, field: string, searchStr: string) {
+  filterByField(
+    array: Readonly<Article[]>,
+    field: string,
+    searchStr: string
+  ) {
     return array.filter((item) => {
       return item[field]
         .toString()
@@ -14,9 +18,9 @@ export class FilterPipe implements PipeTransform {
     });
   }
 
-  transform(array: Readonly<Article[]>, str = ''): Readonly<Article[]> {
+  transform(array: Readonly<Article[]>, str = ''): Article[] {
     if (!str?.trim()) {
-      return array;
+      return [...array];
     }
 
     const withoutTitleMatch = array.filter((item) => {
