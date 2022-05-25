@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { SearchService } from 'src/app/services/search.service';
 import { Article } from 'src/app/shared/interfaces/article.interface';
 
 @Component({
@@ -6,6 +8,25 @@ import { Article } from 'src/app/shared/interfaces/article.interface';
   templateUrl: './article-item.component.html',
   styleUrls: ['./article-item.component.scss'],
 })
-export class ArticleItemComponent {
-  @Input() article: Article = null
+export class ArticleItemComponent implements OnInit {
+  subs: Subscription[] = [];
+  src: string;
+
+  @Input() article: Article = null;
+
+  constructor(private searchService: SearchService) {}
+
+  ngOnInit() {
+    const searchFieldSubscription = this.searchService.string.subscribe(
+      (value) => {
+        this.src = value;
+      }
+    );
+
+    this.subs.push(searchFieldSubscription);
+  }
+
+  ngOnDestroy() {
+    this.subs.forEach((sub) => sub.unsubscribe());
+  }
 }

@@ -1,18 +1,18 @@
 <mat-card class="mat-elevation-z0" *ngIf="article">
-  <img
-    mat-card-image
-    src='{{article.imageUrl}}'
-    alt="Photo of a Shiba Inu"
-  />
+  <img mat-card-image src="{{ article.imageUrl }}" alt="Photo of a Shiba Inu" />
   <mat-card-content>
     <mat-card-subtitle>
-      <mat-icon>calendar_today</mat-icon>{{article.publishedAt | dateSuffix}}
+      <mat-icon>calendar_today</mat-icon>{{ article.publishedAt | dateSuffix }}
     </mat-card-subtitle>
-    <mat-card-title class="max-lines">{{article.title}}</mat-card-title>
-    <p class="summary">
-      {{article.summary | limitSymbols:100}}
-    </p>
-    <p class="link" routerLink="/articles/{{article.id}}">
+    <mat-card-title
+      class="max-lines"
+      [innerHtml]="article.title | highlight: src"
+    ></mat-card-title>
+    <p
+      class="summary"
+      [innerHtml]="article.summary | limitSymbols: 100 | highlight: src"
+    ></p>
+    <p class="link" routerLink="/articles/{{ article.id }}">
       Read more<mat-icon>arrow_forward</mat-icon>
     </p>
   </mat-card-content>
