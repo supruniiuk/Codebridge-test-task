@@ -12,9 +12,11 @@ import { ArticlesPageComponent } from './components/articles-page/articles-page.
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ErrorInterceptor } from './shared/error.interceptor';
+import { StoreModule } from '@ngrx/store';
+import { articlesReducer } from './state/articles/article.reducer';
 
 export const interceptorProviders = [
-  { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+  { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 ];
 
 @NgModule({
@@ -31,8 +33,9 @@ export const interceptorProviders = [
     AppRoutingModule,
     NoopAnimationsModule,
     HttpClientModule,
+    StoreModule.forRoot({ articles: articlesReducer }),
   ],
   providers: [MatSnackBar, interceptorProviders],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
