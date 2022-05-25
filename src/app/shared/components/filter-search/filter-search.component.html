@@ -3,5 +3,5 @@
 <mat-form-field appearance="outline">
   <mat-icon matPrefix>search</mat-icon>
   <mat-label>The most successful IT companies in 2020</mat-label>
-  <input matInput />
+  <input matInput (input)="handleChange($event)" />
 </mat-form-field>

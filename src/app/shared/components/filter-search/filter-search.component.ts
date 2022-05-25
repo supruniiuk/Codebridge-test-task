@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { SearchService } from 'src/app/services/search.service';
 
 @Component({
   selector: 'app-filter-search',
@@ -6,4 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./filter-search.component.scss'],
 })
 export class FilterSearchComponent {
+
+  constructor(private searchService: SearchService) {}
+  searchText1 = '';
+
+  handleChange(e: any) {
+    this.searchService.string = e.target.value;
+  }
 }
