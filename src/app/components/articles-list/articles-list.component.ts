@@ -19,18 +19,18 @@ export class ArticlesListComponent implements OnInit {
     '1550': 3,
   };
 
-  constructor(private searchService: SearchService) {
-    const filterSubscription = this.searchService.string.subscribe((str) => {
-      this.searchStr = str;
-    });
-
-    this.subs.push(filterSubscription);
-  }
+  constructor(private searchService: SearchService) {}
 
   @Input() articles: ReadonlyArray<Article>;
 
   ngOnInit() {
     this.breakpoint = this.setGrid();
+
+    const filterSubscription = this.searchService.string.subscribe((str) => {
+      this.searchStr = str;
+    });
+
+    this.subs.push(filterSubscription);
   }
 
   onResize(event: UIEvent) {

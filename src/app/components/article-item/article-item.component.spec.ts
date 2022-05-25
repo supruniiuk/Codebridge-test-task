@@ -26,22 +26,12 @@ describe('ArticleItemComponent', () => {
     component = new ArticleItemComponent(searchService);
   });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ArticleItemComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
   it('should create', () => {
-    fixture.whenStable().then(() => {
-      expect(component).toBeTruthy();
-    });
+    expect(component).toBeTruthy();
   });
 
   it('calls getting search input', () => {
-    const spy = spyOn(searchService, 'string').and.callFake(() => {
-      return EMPTY;
-    });
+    const spy = spyOnProperty(searchService, 'string').and.callThrough();
 
     component.ngOnInit();
     expect(spy).toHaveBeenCalled();

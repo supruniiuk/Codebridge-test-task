@@ -18,23 +18,8 @@ describe('ArticlesListComponent', () => {
     component = new ArticlesListComponent(searchService);
   });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ArticlesListComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('calls getting search input', () => {
-    const spy = spyOn(searchService, 'string').and.callFake(() => {
-      return EMPTY;
-    });
-
-    component.ngOnInit();
-    expect(spy).toHaveBeenCalled();
   });
 
   it('collects all subscriptions', () => {
@@ -42,4 +27,12 @@ describe('ArticlesListComponent', () => {
     const subs = component.subs;
     expect(subs.length).toBe(1);
   });
+
+  it('calls getting search input', () => {
+    const spy = spyOnProperty(searchService, 'string').and.callThrough();
+
+    component.ngOnInit();
+    expect(spy).toHaveBeenCalled();
+  });
+
 });
