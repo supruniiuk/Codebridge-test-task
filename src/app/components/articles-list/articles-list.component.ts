@@ -33,6 +33,7 @@ export class ArticlesListComponent implements OnInit {
 
     const filterSubscription = this.searchService.string.subscribe((str) => {
       this.searchStr = str;
+
       this.sortedArticles = this.filter.transform(
         this.articles,
         this.searchStr
