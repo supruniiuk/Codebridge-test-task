@@ -6,7 +6,7 @@
   (window:resize)="onResize($event)"
 >
   <mat-grid-tile
-    *ngFor="let article of articles; first as isFirst"
+    *ngFor="let article of articles | filter:searchStr; first as isFirst"
     ><app-article-item [article]="article"></app-article-item
   ></mat-grid-tile>
 </mat-grid-list>

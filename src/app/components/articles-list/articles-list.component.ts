@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { SearchService } from 'src/app/services/search.service';
 import { Article } from 'src/app/shared/interfaces/article.interface';
 
 @Component({
@@ -7,12 +9,23 @@ import { Article } from 'src/app/shared/interfaces/article.interface';
   styleUrls: ['./articles-list.component.scss'],
 })
 export class ArticlesListComponent implements OnInit {
+  subs: Subscription[] = [];
   breakpoint: number;
+  searchStr: string;
+
   widthGrid = {
     '768': 1,
     '1200': 2,
     '1550': 3,
   };
+
+  constructor(private searchService: SearchService) {
+    const filterSubscription = this.searchService.string.subscribe((str) => {
+      this.searchStr = str;
+    });
+
+    this.subs.push(filterSubscription);
+  }
 
   @Input() articles: ReadonlyArray<Article>;
 
@@ -32,5 +45,9 @@ export class ArticlesListComponent implements OnInit {
       }
     }
     return 4;
+  }
+
+  ngOnDestroy() {
+    this.subs.forEach((sub) => sub.unsubscribe());
   }
 }

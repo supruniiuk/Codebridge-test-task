@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FilterPipe } from 'src/app/shared/pipes/filter.pipe';
 import { ArticlesListComponent } from './articles-list.component';
 
 describe('ArticlesListComponent', () => {
@@ -8,7 +8,7 @@ describe('ArticlesListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ArticlesListComponent ]
+      declarations: [ ArticlesListComponent, FilterPipe ],
     })
     .compileComponents();
   });
