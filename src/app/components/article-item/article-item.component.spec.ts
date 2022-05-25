@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { EMPTY } from 'rxjs';
 import { SearchService } from 'src/app/services/search.service';
 import { DateSuffixPipe } from 'src/app/shared/pipes/date-suffix.pipe';
 import { HighlightPipe } from 'src/app/shared/pipes/highlight.pipe';
@@ -13,7 +14,12 @@ describe('ArticleItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ArticleItemComponent, DateSuffixPipe, LimitSymbolsPipe, HighlightPipe],
+      declarations: [
+        ArticleItemComponent,
+        DateSuffixPipe,
+        LimitSymbolsPipe,
+        HighlightPipe,
+      ],
     }).compileComponents();
 
     searchService = TestBed.inject(SearchService);
@@ -29,6 +35,21 @@ describe('ArticleItemComponent', () => {
   it('should create', () => {
     fixture.whenStable().then(() => {
       expect(component).toBeTruthy();
-    })
+    });
+  });
+
+  it('calls getting search input', () => {
+    const spy = spyOn(searchService, 'string').and.callFake(() => {
+      return EMPTY;
+    });
+
+    component.ngOnInit();
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it('collects all subscriptions', () => {
+    component.ngOnInit();
+    const subs = component.subs;
+    expect(subs.length).toBe(1);
   });
 });
