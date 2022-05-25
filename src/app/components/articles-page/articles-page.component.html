@@ -1,4 +1,7 @@
 <app-filter-search></app-filter-search>
+
+<p *ngIf="(getSearchString() | async)" class="text-bold">Results: {{getCount()}}</p>
+
 <mat-divider></mat-divider>
 
 <app-articles-list [articles]="articles$ | async"></app-articles-list>

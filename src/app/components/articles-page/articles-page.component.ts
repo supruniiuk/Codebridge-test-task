@@ -3,7 +3,7 @@ import { PageEvent } from '@angular/material/paginator';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { ArticleService } from 'src/app/services/article.service';
-import { Article } from 'src/app/shared/interfaces/article.interface';
+import { SearchService } from 'src/app/shared/services/search.service';
 import {
   fetchArticleList,
   fetchTotalArticleСount,
@@ -27,7 +27,11 @@ export class ArticlesPageComponent implements OnInit {
   currentPage: number = 1;
   limit: number = 15;
 
-  constructor(private aricleService: ArticleService, private store: Store) {}
+  constructor(
+    private aricleService: ArticleService,
+    private store: Store,
+    private searchService: SearchService
+  ) {}
 
   ngOnInit(): void {
     this.getArticleCounter();
@@ -58,6 +62,14 @@ export class ArticlesPageComponent implements OnInit {
     this.currentPage = e.pageIndex;
     this.limit = e.pageSize;
     this.getAllArticles();
+  }
+
+  getCount() {
+    return this.searchService.count;
+  }
+
+  getSearchString() {
+    return this.searchService.string;
   }
 
   ngOnDestroy() {
