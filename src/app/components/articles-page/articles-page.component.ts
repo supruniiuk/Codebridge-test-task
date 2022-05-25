@@ -20,7 +20,7 @@ export class ArticlesPageComponent implements OnInit {
   arts: ReadonlyArray<Article>;
 
   currentPage: number = 1;
-  limit: number = 10;
+  limit: number = 15;
 
   constructor(private aricleService: ArticleService, private store: Store) {}
 
