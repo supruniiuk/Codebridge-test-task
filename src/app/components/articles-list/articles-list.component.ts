@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Article } from 'src/app/shared/interfaces/article.interface';
+import { FilterPipe } from 'src/app/shared/pipes/filter.pipe';
 import { SearchService } from 'src/app/shared/services/search.service';
 
 @Component({
@@ -12,6 +13,7 @@ export class ArticlesListComponent implements OnInit {
   subs: Subscription[] = [];
   breakpoint: number;
   searchStr: string;
+  sortedArticles: Article[];
 
   widthGrid = {
     '768': 1,
@@ -19,15 +21,25 @@ export class ArticlesListComponent implements OnInit {
     '1550': 3,
   };
 
-  constructor(private searchService: SearchService) {}
-
   @Input() articles: ReadonlyArray<Article>;
+
+  constructor(
+    private searchService: SearchService,
+    private filter: FilterPipe
+  ) {}
 
   ngOnInit() {
     this.breakpoint = this.setGrid();
+    this.sortedArticles = [...this.articles];
 
     const filterSubscription = this.searchService.string.subscribe((str) => {
       this.searchStr = str;
+      this.sortedArticles = this.filter.transform(
+        this.articles,
+        this.searchStr
+      );
+
+      this.searchService.count = this.sortedArticles.length;
     });
 
     this.subs.push(filterSubscription);
