@@ -30,7 +30,6 @@ export class ArticlesListComponent implements OnInit {
 
   ngOnInit() {
     this.breakpoint = this.setGrid();
-    this.sortedArticles = [...this.articles];
 
     const filterSubscription = this.searchService.string.subscribe((str) => {
       this.searchStr = str;

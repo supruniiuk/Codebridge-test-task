@@ -5,16 +5,18 @@ import { ArticlesListComponent } from './articles-list.component';
 
 describe('ArticlesListComponent', () => {
   let component: ArticlesListComponent;
-  let fixture: ComponentFixture<ArticlesListComponent>;
   let searchService: SearchService;
+  let filterPipe: FilterPipe;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ArticlesListComponent, FilterPipe],
+      providers: [FilterPipe]
     }).compileComponents();
 
     searchService = TestBed.inject(SearchService);
-    component = new ArticlesListComponent(searchService);
+    filterPipe = TestBed.inject(FilterPipe);
+    component = new ArticlesListComponent(searchService, filterPipe);
   });
 
   it('should create', () => {
@@ -33,5 +35,4 @@ describe('ArticlesListComponent', () => {
     component.ngOnInit();
     expect(spy).toHaveBeenCalled();
   });
-
 });
