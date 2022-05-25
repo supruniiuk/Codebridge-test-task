@@ -1,14 +1,17 @@
-<header ngModel #articleImg class="article-img"></header>
+<header #articleImg class="article-img"></header>
 
-<mat-card class="mat-elevation-z0" *ngIf="article">
-  <mat-card-title>{{article.title}}</mat-card-title>
-  <mat-card-content>
-    <p>
-      {{article.summary}}
-    </p>
-  </mat-card-content>
-</mat-card>
+<div *ngIf="article">
+  <mat-card class="mat-elevation-z0">
+    <mat-card-title>{{article.title}}</mat-card-title>
+    <mat-card-content>
+      <p>
+        {{article.summary}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+  
+  <p class="link" routerLink="/articles">
+    <mat-icon>arrow_back</mat-icon>Back to homepage
+  </p>
+</div>
 
-<p class="link" routerLink="/articles">
-  <mat-icon>arrow_back</mat-icon>Back to homepage
-</p>
