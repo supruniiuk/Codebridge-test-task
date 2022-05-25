@@ -4,8 +4,14 @@ import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { ArticleService } from 'src/app/services/article.service';
 import { Article } from 'src/app/shared/interfaces/article.interface';
-import { fetchArticleList, fetchTotalArticleСount } from 'src/app/state/articles/articles.actions';
-import { selectArticles, selectArticlesCount } from 'src/app/state/articles/articles.selectors';
+import {
+  fetchArticleList,
+  fetchTotalArticleСount,
+} from 'src/app/state/articles/articles.actions';
+import {
+  selectArticles,
+  selectArticlesCount,
+} from 'src/app/state/articles/articles.selectors';
 
 @Component({
   selector: 'app-articles-page',
@@ -35,14 +41,14 @@ export class ArticlesPageComponent implements OnInit {
         this.store.dispatch(fetchArticleList({ articlesList }))
       );
 
-      this.subs.push(articleSubscription);
+    this.subs.push(articleSubscription);
   }
 
   getArticleCounter() {
     const countSubscription = this.aricleService
       .getArticlesCount()
       .subscribe((count) => {
-        this.store.dispatch(fetchTotalArticleСount({ count }))
+        this.store.dispatch(fetchTotalArticleСount({ count }));
       });
 
     this.subs.push(countSubscription);
