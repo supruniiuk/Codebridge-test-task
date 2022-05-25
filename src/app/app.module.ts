@@ -14,6 +14,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ErrorInterceptor } from './shared/error.interceptor';
 import { StoreModule } from '@ngrx/store';
 import { articlesReducer } from './state/articles/article.reducer';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export const interceptorProviders = [
   { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
@@ -33,6 +34,8 @@ export const interceptorProviders = [
     AppRoutingModule,
     NoopAnimationsModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     StoreModule.forRoot({ articles: articlesReducer }),
   ],
   providers: [MatSnackBar, interceptorProviders],
