@@ -11,8 +11,10 @@
 .mat-card {
   margin-top: 100px;
   padding: 35px 75px 50px;
+
   .mat-card-title {
     margin-bottom: 50px;
+    line-height: 1.5em;
     text-align: center;
   }
   .mat-card-content {
@@ -29,4 +31,13 @@
 .align-with-icon {
   display: flex;
   align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .mat-card {
+    padding: 25px;
+    .mat-card-title {
+      font-size: 20px;
+    }
+  }
 }
