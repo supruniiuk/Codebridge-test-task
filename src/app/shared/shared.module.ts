@@ -9,11 +9,19 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { FilterSearchComponent } from './components/filter-search/filter-search.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { LimitSymbolsPipe } from './pipes/limit-symbols.pipe';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import { DateSuffixPipe } from './pipes/date-suffix.pipe'; 
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { DateSuffixPipe } from './pipes/date-suffix.pipe';
+import { HighlightPipe } from './pipes/highlight.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
-  declarations: [FilterSearchComponent, LimitSymbolsPipe, DateSuffixPipe, DateSuffixPipe],
+  declarations: [
+    FilterSearchComponent,
+    LimitSymbolsPipe,
+    DateSuffixPipe,
+    HighlightPipe,
+    FilterPipe,
+  ],
   imports: [
     CommonModule,
     MatFormFieldModule,
@@ -23,7 +31,7 @@ import { DateSuffixPipe } from './pipes/date-suffix.pipe';
     MatCardModule,
     MatGridListModule,
     MatToolbarModule,
-    MatPaginatorModule
+    MatPaginatorModule,
   ],
   exports: [
     FilterSearchComponent,
@@ -36,7 +44,9 @@ import { DateSuffixPipe } from './pipes/date-suffix.pipe';
     MatToolbarModule,
     LimitSymbolsPipe,
     DateSuffixPipe,
-    MatPaginatorModule
+    HighlightPipe,
+    FilterPipe,
+    MatPaginatorModule,
   ],
 })
 export class SharedModule {}
