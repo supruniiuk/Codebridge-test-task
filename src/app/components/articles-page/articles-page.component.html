@@ -1,15 +1,9 @@
 <app-filter-search></app-filter-search>
 <mat-divider></mat-divider>
 
-<div *ngIf="articles.length">
-  <app-articles-list [articles]="articles"></app-articles-list>
+<app-articles-list [articles]="articles$ | async"></app-articles-list>
 
-  <mat-paginator
-    [length]="totalArticles"
-    [pageSize]="limit"
-    [pageSizeOptions]="[5, 10, 25, 50]"
-    (page)="handlePage($event)"
-    aria-label="Select page"
-  >
-  </mat-paginator>
-</div>
+<mat-paginator [length]="totalArticles$ | async">
+  [pageSize]="limit" [pageSizeOptions]="[5, 10, 25, 50]"
+  (page)="handlePage($event)" aria-label="Select page" >
+</mat-paginator>

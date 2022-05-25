@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { ArticleService } from 'src/app/services/article.service';
 import { Article } from 'src/app/shared/interfaces/article.interface';
+import { fetchArticleList, fetchTotalArticleСount } from 'src/app/state/articles/articles.actions';
+import { selectArticles, selectArticlesCount } from 'src/app/state/articles/articles.selectors';
 
 @Component({
   selector: 'app-articles-page',
@@ -10,14 +13,16 @@ import { Article } from 'src/app/shared/interfaces/article.interface';
   styleUrls: ['./articles-page.component.scss'],
 })
 export class ArticlesPageComponent implements OnInit {
+  articles$ = this.store.select(selectArticles);
+  totalArticles$ = this.store.select(selectArticlesCount);
+
   subs: Subscription[] = [];
-  articles: Article[] = [];
+  arts: ReadonlyArray<Article>;
 
   currentPage: number = 1;
   limit: number = 10;
-  totalArticles: number
 
-  constructor(private aricleService: ArticleService) {}
+  constructor(private aricleService: ArticleService, private store: Store) {}
 
   ngOnInit(): void {
     this.getArticleCounter();
@@ -27,18 +32,18 @@ export class ArticlesPageComponent implements OnInit {
   getAllArticles() {
     const articleSubscription = this.aricleService
       .getArticles(this.limit, this.currentPage)
-      .subscribe((res) => {
-        this.articles = res;
-      });
+      .subscribe((articlesList) =>
+        this.store.dispatch(fetchArticleList({ articlesList }))
+      );
 
-    this.subs.push(articleSubscription);
+      this.subs.push(articleSubscription);
   }
 
   getArticleCounter() {
     const countSubscription = this.aricleService
       .getArticlesCount()
-      .subscribe((res) => {
-        this.totalArticles = +res;
+      .subscribe((count) => {
+        this.store.dispatch(fetchTotalArticleСount({ count }))
       });
 
     this.subs.push(countSubscription);
