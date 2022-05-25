@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { EMPTY } from 'rxjs';
-import { SearchService } from 'src/app/services/search.service';
 import { FilterPipe } from 'src/app/shared/pipes/filter.pipe';
+import { SearchService } from 'src/app/shared/services/search.service';
 import { ArticlesListComponent } from './articles-list.component';
 
 describe('ArticlesListComponent', () => {

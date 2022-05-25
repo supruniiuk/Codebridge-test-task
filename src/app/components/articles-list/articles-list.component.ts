@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { SearchService } from 'src/app/services/search.service';
 import { Article } from 'src/app/shared/interfaces/article.interface';
+import { SearchService } from 'src/app/shared/services/search.service';
 
 @Component({
   selector: 'app-articles-list',

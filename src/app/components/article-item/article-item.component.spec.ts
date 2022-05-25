@@ -1,9 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { EMPTY } from 'rxjs';
-import { SearchService } from 'src/app/services/search.service';
 import { DateSuffixPipe } from 'src/app/shared/pipes/date-suffix.pipe';
 import { HighlightPipe } from 'src/app/shared/pipes/highlight.pipe';
 import { LimitSymbolsPipe } from 'src/app/shared/pipes/limit-symbols.pipe';
+import { SearchService } from 'src/app/shared/services/search.service';
 
 import { ArticleItemComponent } from './article-item.component';
 
