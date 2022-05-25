@@ -6,6 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class SearchService {
   #string = new BehaviorSubject<string>('');
+  #count: number = 0;
 
   get string() {
     return this.#string;
@@ -13,5 +14,13 @@ export class SearchService {
 
   set string(value: any) {
     this.#string.next(value);
+  }
+
+  get count() {
+    return this.#count;
+  }
+
+  set count(value: number) {
+    this.#count = value;
   }
 }
