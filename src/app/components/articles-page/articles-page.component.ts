@@ -17,7 +17,6 @@ export class ArticlesPageComponent implements OnInit {
   totalArticles$ = this.store.select(selectArticlesCount);
 
   subs: Subscription[] = [];
-  arts: ReadonlyArray<Article>;
 
   currentPage: number = 1;
   limit: number = 15;

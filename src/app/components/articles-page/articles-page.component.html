@@ -11,3 +11,5 @@
   aria-label="Select page"
 >
 </mat-paginator>
+
+<mat-spinner *ngIf="!(articles$ | async)?.length"></mat-spinner>

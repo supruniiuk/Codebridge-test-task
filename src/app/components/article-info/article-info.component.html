@@ -2,16 +2,17 @@
 
 <div *ngIf="article">
   <mat-card class="mat-elevation-z0">
-    <mat-card-title>{{article.title}}</mat-card-title>
+    <mat-card-title>{{ article.title }}</mat-card-title>
     <mat-card-content>
       <p>
-        {{article.summary}}
+        {{ article.summary }}
       </p>
     </mat-card-content>
   </mat-card>
-  
+
   <p class="link" routerLink="/articles">
     <mat-icon>arrow_back</mat-icon>Back to homepage
   </p>
 </div>
 
+<mat-spinner *ngIf="!article"></mat-spinner>

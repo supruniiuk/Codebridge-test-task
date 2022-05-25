@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { ArticleInfoComponent } from './components/article-info/article-info.component';
 import { ArticleItemComponent } from './components/article-item/article-item.component';
@@ -32,7 +31,6 @@ export const interceptorProviders = [
     BrowserModule,
     SharedModule,
     AppRoutingModule,
-    NoopAnimationsModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
