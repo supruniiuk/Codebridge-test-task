@@ -51,5 +51,6 @@ import { FilterPipe } from './pipes/filter.pipe';
     MatPaginatorModule,
     MatProgressSpinnerModule,
   ],
+  providers: [FilterPipe]
 })
 export class SharedModule {}

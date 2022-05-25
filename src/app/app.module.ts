@@ -14,6 +14,7 @@ import { ErrorInterceptor } from './shared/error.interceptor';
 import { StoreModule } from '@ngrx/store';
 import { articlesReducer } from './state/articles/article.reducer';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export const interceptorProviders = [
   { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
@@ -25,7 +26,7 @@ export const interceptorProviders = [
     ArticleInfoComponent,
     ArticleItemComponent,
     ArticlesListComponent,
-    ArticlesPageComponent,
+    ArticlesPageComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +35,7 @@ export const interceptorProviders = [
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     StoreModule.forRoot({ articles: articlesReducer }),
   ],
   providers: [MatSnackBar, interceptorProviders],
