@@ -14,7 +14,7 @@ export class ArticlesListComponent implements OnInit {
     '1550': 3,
   };
 
-  @Input() articles: Article[] = [];
+  @Input() articles: ReadonlyArray<Article>;
 
   ngOnInit() {
     this.breakpoint = this.setGrid();
