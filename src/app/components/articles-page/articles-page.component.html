@@ -7,7 +7,9 @@
 <mat-divider></mat-divider>
 
 <div *ngIf="(articles$ | async).length">
-  <app-articles-list [articles]="articles$ | async"></app-articles-list>
+  <app-articles-list
+    [articles]="articles$ | async"
+  ></app-articles-list>
 
   <mat-paginator
     [length]="totalArticles$ | async"
@@ -19,4 +21,4 @@
   </mat-paginator>
 </div>
 
-<mat-spinner *ngIf="!(articles$ | async).length"></mat-spinner>
+<mat-spinner *ngIf="!(articles$ | async)?.length"></mat-spinner>

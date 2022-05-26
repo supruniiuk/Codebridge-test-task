@@ -41,9 +41,9 @@ export class ArticlesPageComponent implements OnInit {
   getAllArticles() {
     const articleSubscription = this.aricleService
       .getArticles(this.limit, this.currentPage)
-      .subscribe((articlesList) =>
-        this.store.dispatch(fetchArticleList({ articlesList }))
-      );
+      .subscribe((articlesList) => {
+        this.store.dispatch(fetchArticleList({ articlesList }));
+      });
 
     this.subs.push(articleSubscription);
   }
@@ -59,8 +59,9 @@ export class ArticlesPageComponent implements OnInit {
   }
 
   handlePage(e: PageEvent) {
-    this.currentPage = e.pageIndex;
+    this.currentPage = e.pageIndex + 1;
     this.limit = e.pageSize;
+    this.store.dispatch(fetchArticleList({ articlesList: [] }));
     this.getAllArticles();
   }
 
