@@ -6,18 +6,17 @@
 
 <mat-divider></mat-divider>
 
-<app-articles-list
-  *ngIf="(articles$ | async)?.length"
-  [articles]="articles$ | async"
-></app-articles-list>
+<div *ngIf="(articles$ | async).length">
+  <app-articles-list [articles]="articles$ | async"></app-articles-list>
 
-<mat-paginator
-  [length]="totalArticles$ | async"
-  [pageSize]="limit"
-  [pageSizeOptions]="[15, 25, 50, 75]"
-  (page)="handlePage($event)"
-  aria-label="Select page"
->
-</mat-paginator>
+  <mat-paginator
+    [length]="totalArticles$ | async"
+    [pageSize]="limit"
+    [pageSizeOptions]="[15, 25, 50, 75]"
+    (page)="handlePage($event)"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</div>
 
-<mat-spinner *ngIf="!(articles$ | async)?.length"></mat-spinner>
+<mat-spinner *ngIf="!(articles$ | async).length"></mat-spinner>
