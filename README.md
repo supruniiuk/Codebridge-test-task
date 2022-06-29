@@ -1,7 +1,7 @@
 # Space posts
 
 ## Deployment
-supruniuk-space-posts.herokuapp.com
+https://supruniuk-space-posts.herokuapp.com
 
 ## How to run?
  Please make sure you have installed node and npm in your system.
