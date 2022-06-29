@@ -1,9 +1,7 @@
-# Codebridge-test-task
-
-This is test task for Junior Angular Developer position in Codebridge Technology, Inc. 
+# Space posts
 
 ## Deployment
-https://codebridge-test-task.herokuapp.com
+https://space-posts.herokuapp.com
 
 ## How to run?
  Please make sure you have installed node and npm in your system.
@@ -14,8 +12,8 @@ https://codebridge-test-task.herokuapp.com
  
  After checking if you have Node installed in your system, you can start app:
  ```
- git clone https://github.com/supruniiuk/Codebridge-test-task.git
- cd Codebridge-test-task
+ git clone https://github.com/supruniiuk/space-posts.git
+ cd space-posts
  npm install
  ng serve
  ```   
